@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Word</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="container text-center">
+
+        <h1 class="fs-1 my-5 py-4">Texto random</h1>
+        <h3>Random word (attempt <span class="text-light"># {{request.session.busquedas}}</span> )</h3>
+        <div class="row">
+            <div class=" col-6 mx-auto border border-dark rounded-pill">
+                <h2 class="fs-1">{{letras_random}}</h2>
+            </div>
+            <form class="my-3" action="/app/random" method="POST">
+                {% csrf_token %}
+                <button class="btn btn-success btn-lg" type="submit">Random</button>
+            </form>
+            <form action="/app/delete" method="POST">
+                {% csrf_token %}
+                <button class="btn btn-danger btn-lg " type="submit">Reset</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
+</body>
+
+</html>

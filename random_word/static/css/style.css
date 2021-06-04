@@ -1,0 +1,4 @@
+body{
+    background: linear-gradient(to top,rgba(216, 183, 183, 0.5),rgba(207, 62, 183, 0.5)),url(../images/fondo.jpg);
+    height: 100vh;
+}
